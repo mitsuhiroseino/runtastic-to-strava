@@ -7,6 +7,7 @@ const DB_FILE_PATH = path.resolve('./resources/runtastic/Container/Documents/dat
   GPX_DIR_PATH = path.resolve('./resources/gpx');
 
 // sqliteのデータをJSONに変換
-await sqlite2json(DB_FILE_PATH, JSON_DIR_PATH);
-// JSONデータをGPX形式に変換
-json2gpx(JSON_DIR_PATH, GPX_DIR_PATH);
+sqlite2json(DB_FILE_PATH, JSON_DIR_PATH).then(() => {
+  // JSONデータをGPX形式に変換
+  json2gpx(JSON_DIR_PATH, GPX_DIR_PATH);
+});
